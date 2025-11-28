@@ -32,4 +32,4 @@ These files contain:
 - API keys / tokens  
 - some really good content generated and then converted into embeddings
 
-To run the full chatbot, users should add their own context files
+To run the pro model chatbot, users should add their own context files however base model embeddings are added in vector_created_2
