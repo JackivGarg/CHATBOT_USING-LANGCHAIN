@@ -12,20 +12,25 @@ RAG-based Question Answering
 -  Modular code structure (easy to extend)
 - Multiple Models created
 
+## 📂 Project Structure
+
+Here is the overview of the project files and directories:
+
+```text
 project/
 │
-├── BENNY.py # Main chatbot script
-├── BENNY_PRO.py # Extended / advanced version
-├── common.py # Utility functions
-├── templates.py # Prompt templates
-├── store_model_embeddings.py # Generates embeddings & vector DB
-├── requirements.txt # Project dependencies
+├── BENNY.py                     # Main chatbot script
+├── BENNY_PRO.py                 # Extended / advanced version
+├── common.py                    # Utility functions
+├── templates.py                 # Prompt templates
+├── store_model_embeddings.py    # Generates embeddings & vector DB
+├── requirements.txt             # Project dependencies
 │
-├── vector_created_2/ # Embeddings folder (ignored)
-├── context/ # Private documents (ignored)
+├── vector_created_2/            # Embeddings folder (ignored in git)
+├── context/                     # Private documents (ignored in git)
 │
-└── .env # API keys and secrets (ignored)
-
+└── .env                         # API keys and secrets (ignored in git)
+```
 Some files such as **embeddings**, **context documents**, and the **.env file** are intentionally not included in this repository for privacy and future options.
 
 These files contain:
