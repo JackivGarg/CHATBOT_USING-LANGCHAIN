@@ -69,3 +69,29 @@ def build_tools():
         tools.append(tool)
 
     return tools
+
+
+# --------------------
+# Load vector store by category
+# --------------------
+VALID_CATEGORIES = ["admissions", "programs", "hostel", "placements", "policies", "general"]
+
+
+def load_vector_store(category: str):
+    """Load FAISS vector store for the given category."""
+    if category not in VALID_CATEGORIES:
+        raise ValueError(f"Invalid category: {category}. Must be one of {VALID_CATEGORIES}")
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    save_path = os.path.join(base_dir, f"faiss_store_{category}")
+
+    # programs may be nested inside faiss_store_general
+    if not os.path.exists(save_path) and category == "programs":
+        alt_path = os.path.join(base_dir, "faiss_store_general", "faiss_store_programs")
+        if os.path.exists(alt_path):
+            save_path = alt_path
+
+    if not os.path.exists(save_path):
+        raise FileNotFoundError(f"Vector store not found: {save_path}")
+
+    return FAISS.load_local(save_path, embedding, allow_dangerous_deserialization=True)

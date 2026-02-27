@@ -23,11 +23,16 @@ class Route1(BaseModel):
     ]] = None
 
 class State(TypedDict):
-    messages: Annotated[List,add_messages]
-    input:str
-    decision:str
-    output:str
-    action:str
-    category:str
-   
-    
+    messages: Annotated[List, add_messages]
+    input: str
+    decision: str
+    output: str
+    action: str
+    category: str
+    relevent: str
+    documents: list  # for retrieve -> grade flow
+
+
+class GradeDocument(BaseModel):
+    relevance: Literal["yes", "no"]
+

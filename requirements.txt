@@ -12,3 +12,5 @@ langchain_openai
 faiss-cpu
 streamlit
 tavily-python
+langchain_huggingface
+langchain_text_splitters
